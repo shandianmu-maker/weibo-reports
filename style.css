@@ -465,3 +465,40 @@ body {
     .topic-table td { padding: 8px 12px; }
     .topic-table .col-heat { width: 76px; }
 }
+
+/* ---------- 迁移通知弹窗 ---------- */
+.notice-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(17, 24, 39, .55);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.notice-overlay.show { display: flex; }
+.notice-dialog {
+    background: #fff;
+    border-radius: 12px;
+    max-width: 440px;
+    width: 100%;
+    padding: 28px 28px 24px;
+    box-shadow: 0 20px 50px rgba(16, 24, 40, .3);
+    border-top: 3px solid var(--primary);
+}
+.notice-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+}
+.notice-body { font-size: 14px; color: var(--text-secondary); line-height: 1.8; }
+.notice-body p { margin: 0 0 8px; }
+.notice-btn {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    padding: 11px 0;
+}

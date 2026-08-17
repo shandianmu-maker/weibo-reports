@@ -39,5 +39,32 @@
     <footer class="footer">
         舆情报告选题筛选 · 仅供内部研判参考，请勿外传
     </footer>
+
+    <div id="migration-notice" class="notice-overlay" role="dialog" aria-modal="true" aria-labelledby="notice-title">
+        <div class="notice-dialog">
+            <div class="notice-title" id="notice-title">系统升级通知</div>
+            <div class="notice-body">
+                <p>本系统已迁移至云端自动化部署，后续将全天候自动运行。</p>
+                <p>原有历史报告与数据不再保留，新的爬取与筛选结果将从即日起开始积累。</p>
+            </div>
+            <button type="button" class="btn-primary notice-btn" id="notice-ack">我知道了</button>
+        </div>
+    </div>
+    <script>
+    (function () {
+        var KEY = 'migration_notice_ack_v1';
+        try {
+            if (localStorage.getItem(KEY)) return;
+        } catch (e) { /* localStorage 不可用时仍显示一次 */ }
+        var overlay = document.getElementById('migration-notice');
+        if (!overlay) return;
+        overlay.classList.add('show');
+        var btn = document.getElementById('notice-ack');
+        btn.addEventListener('click', function () {
+            try { localStorage.setItem(KEY, '1'); } catch (e) {}
+            overlay.classList.remove('show');
+        });
+    })();
+    </script>
 </body>
 </html>
